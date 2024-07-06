@@ -1,0 +1,32 @@
+
+{% extends "layout.html" %}
+{% load static %}
+
+{% block title %}
+  TalkBag
+{% endblock title %}
+
+{% block content %}
+  <h1 class="text-center">Welcome to the Talkbag Website!!</h1>
+
+  <a class="btn btn-primary mb-4" href="{% url 'talk_create' %}">Let's Talk</a>
+  <div class="container row gap-3">
+    {% for talk in talks %}
+    <div class="card" style="width: 18rem;">
+        {% if talk.photo %}
+          <img src="{{ talk.photo.url }}" class="card-img-top" alt="...">
+        {% else %}
+          <img src="{% static 'default.jpg' %}" class="card-img-top" alt="...">
+        {% endif %}
+        <div class="card-body">
+          <h5 class="card-title">{{talk.user.username}}</h5>
+          <p class="card-text">{{talk.text}}</p>
+          {% if talk.user == user %}
+          <a href="{% url 'talk_edit' talk.id %}" class="btn btn-primary">Edit</a>
+          <a href="{% url 'talk_delete' talk.id %}" class="btn btn-danger">Delete</a>
+          {% endif %}
+        </div>
+      </div> 
+    {% endfor %}
+  </div>
+{% endblock content %}

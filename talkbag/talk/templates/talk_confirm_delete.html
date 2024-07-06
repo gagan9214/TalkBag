@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+
+{% block title %}
+  TalkBag
+{% endblock title %}
+
+{% block content %}
+  <h1 class="text-center">Are You sure want to delete?</h1>
+
+  <form method="POST">
+    {% csrf_token %}
+    <button class="btn btn-danger">Delete</button>
+    <a href="{% url 'talk_list' %}" class="btn btn-success">cancel</a>
+  </form>
+{% endblock content %}

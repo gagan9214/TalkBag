@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+
+{% block title %}
+  TalkBag
+{% endblock title %}
+
+{% block content %}
+  <h1 class="text-center">Welcome to the Talkbag Website!!</h1>
+
+  <h2>
+    {% if form.instance.pk %}Edit Talk {% else %}Create Talk{% endif %}
+    <form method="POST" enctype="multipart/form-data" class="form">
+        {% csrf_token %}
+        {{form.as_p}}
+        <button class="btn btn-warning"type="submit">Submit</button>
+    </form>
+    <a href="{% url 'talk_list' %}"> Back to Talks</a>
+  </h2>
+{% endblock content %}
