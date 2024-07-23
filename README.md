@@ -24,7 +24,7 @@ Describe the main features of your project, including functionalities such as:
 1. **Clone the repository:**
 
    ```bash
-   git clone https://github.com/your_username/your_project.git
+   git clone https://github.com/gagan9214/TalkBag.git
    cd your_project
 
 Create a virtual environment:
